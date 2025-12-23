@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Global Font System */
+  --font-main: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Font Sizes */
+  --fs-title: 18px;
+  --fs-body: 14px;
+  --fs-value: 13px;
+  --fs-notification: 12px;
+
+  /* Colors */
+  --c-text-primary: #f0f0f0;
+  --c-text-secondary: #9ca3af;
+  --c-text-accent: #ffd700;
+  
+  /* Window Unification */
+  --win-bg: rgba(15, 15, 15, 0.9);
+  --win-border-color: #555;
+  --win-border: 2px solid var(--win-border-color);
+  --win-radius: 4px;
+  --win-padding: 10px;
+  
+  /* Slot Unification */
+  --slot-size: 45px;
+  --slot-bg: rgba(0, 0, 0, 0.3);
+  --slot-border: 1px solid #444;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--c-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utility Classes for Typography */
+.ui-title {
+  font-size: var(--fs-title);
+  font-weight: 700;
+  color: var(--c-text-primary);
+}
+
+.ui-label {
+  font-size: var(--fs-body);
+  color: var(--c-text-secondary);
+  text-align: left;
+}
+
+.ui-value {
+  font-size: var(--fs-value);
+  color: var(--c-text-accent);
+  text-align: right;
+  font-family: monospace; /* Optional for number alignment */
+}
+
+/* Unified Window Class */
+.ui-window-container {
+  background: var(--win-bg);
+  border: var(--win-border);
+  border-radius: var(--win-radius);
+  padding: var(--win-padding);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+/* Unified Slot Class */
+.ui-slot {
+  width: var(--slot-size);
+  height: var(--slot-size);
+  background: var(--slot-bg);
+  border: var(--slot-border);
+  border-radius: 2px; /* Slight rounding for polish, can be 0 if strict square preferred */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.1s;
+}
+
+.ui-slot:hover {
+  border-color: #888;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.ui-slot.active {
+  border-color: var(--c-text-accent);
+  box-shadow: inset 0 0 5px rgba(255, 215, 0, 0.2);
+}
+
+/* Force Pixelated Canvas Scaling */
+canvas {
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
